@@ -1,9 +1,9 @@
 {
   "name": "physioapi",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
+    "start":"node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
@@ -14,5 +14,7 @@
     "express": "^4.18.1",
     "mongoose": "^6.5.4",
     "nodemon": "^2.0.19"
-  }
+  },
+  "devDependencies": {},
+  "description": ""
 }
