@@ -111,16 +111,22 @@ app.get('/signin',(req,res)=>{
 })
 
 app.post('/signin',(req,res)=>{
-    console.log(req.body)
+    // console.log(req.body)
     UserModel.find({email: req.body.email , password : req.body.password})
-    .then(result => {        
+    .then(result => {   
+        console.log(result)     
         if(result.length == 0)
         {
-            res.status(400).send()
+            res.status(400).json({user:'not found'})
         }
         else{  
-            signinUser = result;       
-            res.status(200).send()
+            if(result[0].email == 'abc@gmail.com')
+            {            
+                res.status(200).json({admin:'true',username:result[0].username})
+            }
+            else{
+                res.status(200).json({admin:'false',username:result[0].username})  
+            }    
         }
     })
     .catch(err=>{
